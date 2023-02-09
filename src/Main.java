@@ -1,5 +1,7 @@
 public class Main {
 
+    //БАЗОВАЯ И ПОВЫШЕННАЯ СЛОЖНОСТЬ КУРСОВОЙ РАБОТЫ
+
     public static Employee[] employees= new Employee[10];
 
     public static void main(String[] args) {
