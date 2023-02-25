@@ -1,7 +1,7 @@
 public class Employee {
 
-    private int id;
-    private String name;
+    private final int id;
+    private final String name;
     private int department;
     private float salary;
 
@@ -31,11 +31,7 @@ public class Employee {
         return salary;
     }
 
-    public static int getCount() {
-        return count;
-    }
-
-    public void setDepartment(int department) {
+        public void setDepartment(int department) {
         this.department = department;
     }
 

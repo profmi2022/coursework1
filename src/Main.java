@@ -2,7 +2,7 @@ public class Main {
 
     //БАЗОВАЯ И ПОВЫШЕННАЯ СЛОЖНОСТЬ КУРСОВОЙ РАБОТЫ
 
-    public static Employee[] employees= new Employee[10];
+    private static Employee[] employees= new Employee[10];
 
     public static void main(String[] args) {
 
@@ -21,9 +21,9 @@ public class Main {
 
         System.out.println("Сумма затрат на зарплаты в месяц: " + sumSalary());
 
-        System.out.println("Cотрудник с минимальной зарплатой: " + employees[minSalary()]);
+        System.out.println("Cотрудник с минимальной зарплатой: " + minSalary());
 
-        System.out.println("Cотрудник с максимальной зарплатой: " + employees[maxSalary()]);
+        System.out.println("Cотрудник с максимальной зарплатой: " + maxSalary());
 
         System.out.println("Cреднее значение зарплат: " + averageSalary());
 
@@ -35,8 +35,8 @@ public class Main {
 
         System.out.println("\nЗАДАНИЯ ПОВЫШЕННОЙ СЛОЖНОСТИ");
         System.out.println("\nЗадания 2.a,b,c,d");
-        System.out.println("Cотрудник с минимальной зарплатой в отделе: " + employees[minSalaryDepartment(4)]);
-        System.out.println("Cотрудник с максимальной зарплатой в отделе: " + employees[maxSalaryDepartment(4)]);
+        System.out.println("Cотрудник с минимальной зарплатой в отделе: " + minSalaryDepartment(4));
+        System.out.println("Cотрудник с максимальной зарплатой в отделе: " + maxSalaryDepartment(4));
         System.out.println("Сумма затрат на зарплаты отдела в месяц: " + sumSalaryDepartment(4));
         System.out.println("Cреднее значение зарплат в отделе: " + averageSalaryDepartment(4));
 
@@ -67,7 +67,7 @@ public class Main {
         return sum;
     }
     //Минимальная заплата по всем сотрудникам
-    public static int minSalary(){
+    public static Employee minSalary(){
         float salary = 100000000;
         int index = 0;
         for (int i = 0; i < employees.length; i++) {
@@ -76,10 +76,10 @@ public class Main {
                 index = i;
             }
         }
-            return index;
+            return employees[index];
     }
     //Максимальная зарплата по всем сотрудникам
-    public static int maxSalary(){
+    public static Employee maxSalary(){
         float salary = 0;
         int index = 0;
         for (int i = 0; i < employees.length; i++) {
@@ -88,7 +88,7 @@ public class Main {
                 index = i;
             }
         }
-        return index;
+        return employees[index];
     }
 
     //Средняя зарплата по всем сотрудникам
@@ -106,7 +106,7 @@ public class Main {
     }
 
     //Минимальная заплата по сотрудникам отдела
-    public static int minSalaryDepartment(int department){
+    public static Employee minSalaryDepartment(int department){
         float salary = 100000000;
         int index = 0;
         for (int i = 0; i < employees.length; i++) {
@@ -115,11 +115,11 @@ public class Main {
                 index = i;
             }
         }
-        return index;
+        return employees[index];
     }
 
     //Максимальная зарплата по сотрудникам отдела
-    public static int maxSalaryDepartment(int department){
+    public static Employee maxSalaryDepartment(int department){
         float salary = 0;
         int index = 0;
         for (int i = 0; i < employees.length; i++) {
@@ -128,7 +128,7 @@ public class Main {
                 index = i;
             }
         }
-        return index;
+        return employees[index];
     }
 
     //Сумма заплат сотрудников отдела
@@ -143,7 +143,7 @@ public class Main {
     }
 
     //Средняя зарплата по сотрудникам отдела
-    public static float averageSalaryDepartment(int department){
+    public static float averageSalaryDepartment(int department) {
         float sum = 0;
         int quantity = 0;
         for (int i = 0; i < employees.length; i++) {
@@ -152,7 +152,11 @@ public class Main {
                 quantity++;
             }
         }
-        return sum/quantity;
+        if (quantity > 0) {
+            return sum / quantity;
+        } else {
+            return 0;
+        }
     }
 
     //Индексация зарплаты всех сотрудников отдела
